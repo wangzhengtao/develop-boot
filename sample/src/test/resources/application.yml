@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/tmp/${db.name};DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      #none, validate, update, create, create-drop
+      ddl-auto: update
+    show-sql: true
+  dbunit:
+    operationType: CLEAN_INSERT
+    sample-file: src/test/resources/sample-data.xml
+    data-factory: org.dbunit.ext.h2.H2DataTypeFactory
+  main:
+    allow-bean-definition-overriding: true
+db:
+  name: develop_boot_sample
+
+server:
+  port: 8080
+
+logging:
+  level:
+    vip.codemonkey: DEBUG
+
