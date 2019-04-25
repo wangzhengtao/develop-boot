@@ -21,8 +21,5 @@ data class Organization(
     @get:Column(nullable = false, length = 10,unique = true)
     var code: String = Number36().getInitNumber(10),
     @get:Column(nullable = false, length = 50,unique = true)
-    var name: String = "",
-    override var id: Long = 0L,
-    override var createdAt: LocalDateTime = LocalDateTime.now(),
-    override var updatedAt: LocalDateTime = LocalDateTime.now()
-): LongIdEntity(id, createdAt, updatedAt)
+    var name: String = ""
+): LongIdEntity()

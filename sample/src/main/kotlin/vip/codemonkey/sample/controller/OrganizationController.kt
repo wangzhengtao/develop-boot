@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*
 import vip.codemonkey.sample.condition.OrganizationCondition
 import vip.codemonkey.sample.entity.Organization
 import vip.codemonkey.sample.service.OrganizationService
-import vip.codemonkey.common.dto.SimpleResponse
+import vip.codemonkey.security.core.dto.SimpleResponse
 
 
 /**

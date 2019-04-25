@@ -180,19 +180,19 @@ project(":data-jpa"){
 
 }
 
-project(":data-redis"){
-    dependencies{
-        compile(project(":common"))
-
-        api("org.springframework.boot:spring-boot-starter-data-redis")
-        api("com.alibaba:fastjson:1.2.51")
-        api("redis.clients:jedis:2.9.0")
-        api("com.fasterxml.jackson.core:jackson-core:2.9.8")
-        api("com.fasterxml.jackson.core:jackson-databind:2.9.8")
-        api("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
-    }
-
-}
+//project(":data-redis"){
+//    dependencies{
+//        compile(project(":common"))
+//
+//        api("org.springframework.boot:spring-boot-starter-data-redis")
+//        api("com.alibaba:fastjson:1.2.51")
+//        api("redis.clients:jedis:2.9.0")
+//        api("com.fasterxml.jackson.core:jackson-core:2.9.8")
+//        api("com.fasterxml.jackson.core:jackson-databind:2.9.8")
+//        api("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
+//    }
+//
+//}
 
 project(":security-core"){
     dependencies{
@@ -206,6 +206,7 @@ project(":security-core"){
         api("org.springframework.social:spring-social-web")
         api("commons-lang:commons-lang")
         api("commons-io:commons-io")
+        api("javax:javaee-api:8.0")
 
     }
 }

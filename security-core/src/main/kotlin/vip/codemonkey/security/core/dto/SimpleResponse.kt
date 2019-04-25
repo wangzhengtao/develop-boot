@@ -1,4 +1,4 @@
-package vip.codemonkey.common.dto
+package vip.codemonkey.security.core.dto
 
 import org.springframework.http.HttpStatus
 import vip.codemonkey.common.annotation.NoArg
@@ -72,13 +72,14 @@ data class SimpleResponse<T:Any?>(
             return paramInvalid("请求参数不正确")
         }
 
-        fun <T: Any?>unauthorized(): SimpleResponse<T> {
+        fun unauthorized(): SimpleResponse<Any> {
             return SimpleResponse(HttpStatus.UNAUTHORIZED.value(), "用户未登陆认证")
         }
 
-        fun <T: Any?>forbidden(): SimpleResponse<T> {
+        fun forbidden(): SimpleResponse<Any> {
             return SimpleResponse(HttpStatus.FORBIDDEN.value(), "未授权的请求")
         }
+
     }
 
 

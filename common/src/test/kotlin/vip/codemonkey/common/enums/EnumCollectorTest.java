@@ -1,7 +1,7 @@
 package vip.codemonkey.common.enums;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
@@ -14,6 +14,6 @@ public class EnumCollectorTest {
     public void test(){
         EnumCollector enumCollector = new EnumCollector();
         Set<EnumView> enumViewList = enumCollector.getEnumViewList();
-        Assert.assertTrue(enumViewList.size() == 2);
+        Assertions.assertTrue(enumViewList.size() == 2);
     }
 }

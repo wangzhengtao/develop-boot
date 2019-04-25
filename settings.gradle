@@ -2,7 +2,7 @@ rootProject.name = "develop-boot"
 
 include("common")
 include("data-jpa")
-include("data-redis")
+//include("data-redis")
 include("sample")
 include("security-core")
 include("security-normal")

@@ -1,6 +1,6 @@
 package vip.codemonkey.sample.repository
 
-import vip.codemonkey.data.jpa.extension.notBlankThen
+import vip.codemonkey.common.extension.notBlankThen
 import vip.codemonkey.data.jpa.repository.BaseLongIdEntityBuilder
 import vip.codemonkey.data.jpa.repository.QueryDslRepository
 import vip.codemonkey.sample.condition.OrganizationCondition

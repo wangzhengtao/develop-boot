@@ -43,6 +43,7 @@ abstract class BaseDataTestCase {
 
     @Throws(Exception::class)
     fun importSampleData() {
+        logger.info(env.getProperty("refreshDb"))
         env.getProperty("refreshDb") ?: return
         if (flag) return else flag = true
         val datasourceUrl = env.getProperty("spring.datasource.url")

@@ -7,47 +7,18 @@ spring:
   jpa:
     hibernate:
       #none, validate, update, create, create-drop
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
-  redis:
-    database: 0
-    password: aplusx0123456
-    cluster:
-      # 各 Redis 节点信息
-      nodes: 192.168.1.222:8001,192.168.1.222:8002,192.168.1.222:8003,192.168.1.222:8004,192.168.1.222:8005,192.168.1.222:8006
-      # 执行命令超时时间
-      commandTimeout: 15000
-      # 重试次数
-      maxAttempts: 5
-      # 跨集群执行命令时要遵循的最大重定向数量
-      maxRedirects: 3
-      # 连接池最大连接数（使用负值表示没有限制）
-      maxActive: 16
-      # 连接池最大阻塞等待时间（使用负值表示没有限制）
-      maxWait: -1
-      # 连接池中的最大空闲连接
-      maxIdle: 8
-      # 连接池中的最小空闲连接
-      minIdle: 0
-      # 是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
-      testOnBorrow: false
-      #当调用return Object方法时，是否进行有效性检查
-      testOnReturn: false
-      #Idle时进行连接扫描
-      testWhileIdle: true
-      #idle object evitor两次扫描之间要sleep的毫秒数
-      timeBetweenEvictionRunsMillis: 30000
-      #idle object evitor每次扫描的最多的对象数
-      numTestsPerEvictionRun: 10
-      #一个对象至少停留在idle状态的最短时间，然后才能被idle object evitor扫描并驱逐；这一项只有在timeBetweenEvictionRunsMillis大于0时才有意义
-      minEvictableIdleTimeMillis: 60000
-    timeout: 500
   dbunit:
     operationType: CLEAN_INSERT
     sample-file: src/test/resources/sample-data.xml
     data-factory: org.dbunit.ext.h2.H2DataTypeFactory
   main:
     allow-bean-definition-overriding: true
+  security:
+    user:
+      name: user
+      password: 123456
 
 
 db:
@@ -58,6 +29,14 @@ server:
 
 logging:
   level:
-    root: INFO
+    vip.codemonkey: DEBUG
 
 
+codemonkey:
+    security:
+      normal:
+        loginType: JSON
+      validate-code:
+               image:
+                 length: 6
+                 width: 100
