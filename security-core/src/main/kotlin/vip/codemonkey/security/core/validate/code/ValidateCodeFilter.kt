@@ -9,7 +9,9 @@ import org.springframework.stereotype.Component
 import org.springframework.util.AntPathMatcher
 import org.springframework.web.context.request.ServletWebRequest
 import org.springframework.web.filter.OncePerRequestFilter
+import vip.codemonkey.common.constant.Punctuations
 import vip.codemonkey.security.core.constant.SecurityConstants
+import vip.codemonkey.security.core.properties.SecurityProperties
 import vip.codemonkey.security.core.validate.code.image.ImageCode
 import java.util.*
 import javax.servlet.FilterChain
@@ -21,17 +23,34 @@ class ValidateCodeFilter :OncePerRequestFilter(),InitializingBean {
 
     @Autowired
     lateinit var authenticationFailureHandler: AuthenticationFailureHandler
+    @Autowired
+    lateinit var securityProperties: SecurityProperties
+
+    val validUrls:MutableSet<String> = mutableSetOf()
+
     val sessionStrategy = HttpSessionSessionStrategy()
     val antPathMatcher = AntPathMatcher()
 
+    override fun afterPropertiesSet() {
+        super.afterPropertiesSet()
+        if(securityProperties.validateCode.image.urls.isNotBlank()){
+            validUrls.addAll(StringUtils.splitByWholeSeparatorPreserveAllTokens(securityProperties.validateCode.image.urls, Punctuations.COMMA))
+        }
+    }
 
     override fun doFilterInternal(
         request: HttpServletRequest,
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
+        var flag = false
+        validUrls.forEach {
+            if(antPathMatcher.match(it,request.requestURI)){
+                flag = true
+            }
+        }
 
-        if(antPathMatcher.match(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,request.requestURI)){
+        if(flag){
             try{
                 validate(ServletWebRequest(request))
             }catch (e:ValidateCodeException){

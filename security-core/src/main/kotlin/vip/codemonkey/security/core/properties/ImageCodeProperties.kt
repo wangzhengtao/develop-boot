@@ -5,4 +5,5 @@ class ImageCodeProperties {
     var height:Int = 23
     var length:Int = 4
     var expiredIn:Long = 60L
+    var urls:String = ""
 }

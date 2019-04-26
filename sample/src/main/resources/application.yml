@@ -40,3 +40,4 @@ codemonkey:
                image:
                  length: 6
                  width: 100
+                 urls: /organization/*,/authentication/form
