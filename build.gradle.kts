@@ -180,19 +180,19 @@ project(":data-jpa"){
 
 }
 
-//project(":data-redis"){
-//    dependencies{
-//        compile(project(":common"))
-//
-//        api("org.springframework.boot:spring-boot-starter-data-redis")
-//        api("com.alibaba:fastjson:1.2.51")
-//        api("redis.clients:jedis:2.9.0")
-//        api("com.fasterxml.jackson.core:jackson-core:2.9.8")
-//        api("com.fasterxml.jackson.core:jackson-databind:2.9.8")
-//        api("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
-//    }
-//
-//}
+project(":data-redis"){
+    dependencies{
+        compile(project(":common"))
+
+        api("org.springframework.boot:spring-boot-starter-data-redis")
+        api("com.alibaba:fastjson:1.2.51")
+        api("redis.clients:jedis:2.9.0")
+        api("com.fasterxml.jackson.core:jackson-core:2.9.8")
+        api("com.fasterxml.jackson.core:jackson-databind:2.9.8")
+        api("com.fasterxml.jackson.core:jackson-annotations:2.9.8")
+    }
+
+}
 
 project(":security-core"){
     dependencies{
@@ -207,6 +207,7 @@ project(":security-core"){
         api("commons-lang:commons-lang")
         api("commons-io:commons-io")
         api("javax:javaee-api:8.0")
+        
 
     }
 }
@@ -217,6 +218,7 @@ project(":security-normal"){
 
         implementation("com.squareup.retrofit2:converter-jackson:2.5.0")
         implementation("com.squareup.retrofit2:retrofit:2.5.0")
+        implementation("org.springframework.boot:spring-boot-starter-data-redis")
     }
 }
 

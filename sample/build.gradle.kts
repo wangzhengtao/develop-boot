@@ -19,5 +19,7 @@ dependencies{
 //    implementation("Aplus:jx-rediscluster:0.0.1-SNAPSHOT")
     testRuntime("org.junit.jupiter:junit-jupiter-engine")
     testCompile("org.junit.jupiter:junit-jupiter-api")
+
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
