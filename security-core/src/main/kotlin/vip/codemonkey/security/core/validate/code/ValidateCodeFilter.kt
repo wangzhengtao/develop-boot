@@ -64,26 +64,26 @@ class ValidateCodeFilter :OncePerRequestFilter(),InitializingBean {
 
 
     fun validate(request: ServletWebRequest){
-        val sessionCode = sessionStrategy.getAttribute(request,ValidateCodeController.SESSION_KEY) as ImageCode?
-        val requestCode = request.request.getAttribute("imageCode") as String?
-        if(StringUtils.isBlank(requestCode)) {
-            throw ValidateCodeException("验证码参数不能为空")
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
-        }
-
-        if(Objects.isNull(sessionCode)){
-            throw ValidateCodeException("验证码不存在")
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
-        }
-
-        if(sessionCode!!.isExpire()) {
-            throw ValidateCodeException("验证码已失效")
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
-        }
-
-        if(!Objects.equals(requestCode,sessionCode.code)){
-            throw ValidateCodeException("验证码不匹配")
-            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
-        }
+//        val sessionCode = sessionStrategy.getAttribute(request,ValidateCodeController.SESSION_KEY) as ImageCode?
+//        val requestCode = request.request.getAttribute("imageCode") as String?
+//        if(StringUtils.isBlank(requestCode)) {
+//            throw ValidateCodeException("验证码参数不能为空")
+//            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
+//        }
+//
+//        if(Objects.isNull(sessionCode)){
+//            throw ValidateCodeException("验证码不存在")
+//            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
+//        }
+//
+//        if(sessionCode!!.isExpire()) {
+//            throw ValidateCodeException("验证码已失效")
+//            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
+//        }
+//
+//        if(!Objects.equals(requestCode,sessionCode.code)){
+//            throw ValidateCodeException("验证码不匹配")
+//            sessionStrategy.removeAttribute(request,ValidateCodeController.SESSION_KEY)
+//        }
     }
 }

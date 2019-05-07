@@ -31,6 +31,7 @@ server:
 logging:
   level:
     vip.codemonkey: DEBUG
+    root: DEBUG
 
 
 codemonkey:

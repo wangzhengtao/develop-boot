@@ -1,9 +1,10 @@
 package vip.codemonkey.security.core.properties
 
-class ImageCodeProperties {
+class ImageCodeProperties: SmsCodeProperties() {
     var width:Int = 67
     var height:Int = 23
-    var length:Int = 4
-    var expiredIn:Long = 60L
-    var urls:String = ""
+
+    init {
+        length = 4
+    }
 }

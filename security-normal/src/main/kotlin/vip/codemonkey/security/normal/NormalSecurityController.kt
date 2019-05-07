@@ -30,7 +30,6 @@ class NormalSecurityController {
     @RequestMapping(SecurityConstants.DEFAULT_UNAUTHENTICATION_URL)
     fun requireAuthentication(request: HttpServletRequest, response: HttpServletResponse){
         val savedRequest = requestCache.getRequest(request, response)
-        logger.debug("request uri {} need authentication",request.requestURI)
         if(Objects.nonNull(savedRequest) && Objects.equals(LoginType.REDIRECT,securityProperties.normal.loginType)){
             redirectStrategy.sendRedirect(request,response,securityProperties.normal.loginPage)
         }else{

@@ -51,10 +51,10 @@ class NormalSecurityConfiguration :WebSecurityConfigurerAdapter() {
                 .and()
             .authorizeRequests()
                 .antMatchers(
-                    SecurityConstants.DEFAULT_UNAUTHENTICATION_URL,
-                    SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM,
-                    SecurityConstants.DEFAULT_LOGIN_PAGE_URL,
-                    SecurityConstants.GET_VALIDATE_CODE_URL+"/*"
+                    SecurityConstants.DEFAULT_UNAUTHENTICATION_URL
+                    ,SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM
+                    ,SecurityConstants.DEFAULT_LOGIN_PAGE_URL
+                    ,SecurityConstants.GET_VALIDATE_CODE_URL+"/*"
                 )
                 .permitAll()
                 .anyRequest()

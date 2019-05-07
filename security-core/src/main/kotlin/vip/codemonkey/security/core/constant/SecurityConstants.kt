@@ -10,5 +10,13 @@ class SecurityConstants {
         const val DEFAULT_LOGIN_PROCESSING_URL_FORM: String = "/authentication/form"
         /**请求验证码url*/
         const val GET_VALIDATE_CODE_URL: String = "/validate/code"
+        /**
+         * 验证图片验证码时，http请求中默认的携带图片验证码信息的参数的名称
+         */
+        val DEFAULT_PARAMETER_NAME_CODE_IMAGE = "imageCode"
+        /**
+         * 验证短信验证码时，http请求中默认的携带短信验证码信息的参数的名称
+         */
+        val DEFAULT_PARAMETER_NAME_CODE_SMS = "smsCode"
     }
 }
